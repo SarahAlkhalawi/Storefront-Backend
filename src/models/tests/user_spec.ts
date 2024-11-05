@@ -17,15 +17,16 @@ describe("User Model", () => {
 
     it('create method should add a user', async () => {
         const result = await store.create({
-          firstName: 'Sarah',
-          lastName: 'Saleh',
-            password: 'sar12'
+          firstName: 'Fatima',
+          lastName: 'Fahad',
+            password: 'fat123'
         });
         createdUserId = result.id as number;
         expect(result).not.toBeNull();
     });
+
     it("authenticate user with password", async () => {
-      const output = await store.authenticate("Sarah", "sar12");
+      const output = await store.authenticate("Fatima", "fat123");
       expect(output).not.toBeNull();
   });
   

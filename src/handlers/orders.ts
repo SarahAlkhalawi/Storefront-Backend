@@ -14,8 +14,14 @@ const index = async (_req: Request, res: Response) => {
         res.json('Access denied, invalid token')
         return
     }
-  const orders = await store.index()
-  res.json(orders)
+    try{
+        const orders = await store.index()
+        res.json(orders)
+    }
+    catch(err){
+        res.status(400)
+        res.json(err)
+    }
 }
 
 const show = async (req: Request, res: Response) => {
@@ -28,8 +34,14 @@ const show = async (req: Request, res: Response) => {
         res.json('Access denied, invalid token')
         return
     }
-   const order = await store.show(req.params.id)
-   res.json(order)
+    try{
+        const order = await store.show(req.params.id)
+        res.json(order)
+    }
+    catch(err){
+        res.status(400)
+        res.json(err)
+    }
 }
 
 const showByUserId = async (req: Request, res: Response) => {
@@ -42,8 +54,14 @@ const showByUserId = async (req: Request, res: Response) => {
         res.json('Access denied, invalid token')
         return
     }
+    try{
    const order = await store.showByUserId(req.params.userId)
    res.json(order)
+    }
+    catch(err){
+        res.status(400)
+        res.json(err)
+    }
 }
 
 const create = async (req: Request, res: Response) => {

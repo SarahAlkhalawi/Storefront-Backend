@@ -104,7 +104,7 @@ export class UserStore {
       //delete User
       async delete(id: string): Promise<User> {
         if (!id) {
-            throw new Error('Order ID is required for deletion.');
+            throw new Error('User ID is required for deletion.');
         }
           try {
             const sql = 'DELETE FROM users WHERE id=($1) RETURNING *';
